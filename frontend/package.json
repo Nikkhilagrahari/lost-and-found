@@ -58,11 +58,11 @@
     "zod": "^3.24.4"
   },
   "scripts": {
-    "preinstall": "npm install --legacy-peer-deps",
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test"
-  },
+  "start": "react-scripts start",
+  "build": "CI=false npm install --legacy-peer-deps && react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject"
+},
   "browserslist": {
     "production": [
       ">0.2%",
