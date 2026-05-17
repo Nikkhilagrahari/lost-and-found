@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BACKEND_URL =
   process.env.REACT_APP_BACKEND_URL ||
-  "http://localhost:8000";
+  "https://lost-and-found-qtcu.onrender.com";
 
 export const api = axios.create({
   baseURL: `${BACKEND_URL}/api`,
