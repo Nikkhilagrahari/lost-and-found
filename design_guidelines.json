@@ -1,0 +1,91 @@
+{
+  "theme": "light",
+  "archetype": "4 (Swiss & High-Contrast) adapted for Academic/Institutional Vibe",
+  "design_philosophy": "A clean, trustworthy, and authoritative academic platform. It must feel like an official utility for IET Gorakhpur University—prioritizing clarity, function, and institutional pride over decorative fluff. Mobile-first responsive for students on the go.",
+  "colors": {
+    "background": "#FAFAFA",
+    "surface": "#FFFFFF",
+    "surface_secondary": "#F1F5F9",
+    "primary": "#1E3A8A",
+    "primary_hover": "#1E40AF",
+    "accent": "#F59E0B",
+    "text_primary": "#0F172A",
+    "text_secondary": "#475569",
+    "border": "#E2E8F0",
+    "status": {
+      "lost": "#EF4444",
+      "found": "#10B981",
+      "pending": "#F59E0B"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cabinet Grotesk, sans-serif",
+      "body": "IBM Plex Sans, sans-serif"
+    },
+    "scales": {
+      "h1": "text-4xl sm:text-5xl font-bold tracking-tight text-[#0F172A]",
+      "h2": "text-2xl sm:text-3xl font-bold tracking-tight text-[#0F172A]",
+      "h3": "text-xl sm:text-2xl font-semibold text-[#0F172A]",
+      "body": "text-base leading-relaxed text-[#475569]",
+      "small": "text-sm text-[#64748B]",
+      "overline": "text-xs font-bold uppercase tracking-[0.2em] text-[#1E3A8A]"
+    }
+  },
+  "layout": {
+    "spacing": "Generous spacing (p-6, p-8) for landing, dense/compact (p-4) for dashboard/forms.",
+    "grid": "Bento Grid (Control Room Mode) for the Admin Dashboard. Standard masonry or uniform grid for Item Browsing.",
+    "corners": "rounded-md (subtle 6px-8px radius to maintain an institutional, non-playful look)",
+    "borders": "1px solid border-border. Use cardless layouts where possible or strict grid borders to feel technical and organized.",
+    "shadows": "shadow-sm for interactive elements, avoid large diffuse shadows. Flat UI preferred."
+  },
+  "components": {
+    "buttons": "Shadcn Button. Primary uses #1E3A8A background, white text. No rounded-full pills—stick to rounded-md.",
+    "forms": "Shadcn Input, Select, DatePicker, Textarea. Left-aligned labels. Use solid flat surfaces for inputs.",
+    "cards": "Flat background, 1px subtle border, no shadow by default. Hover: shadow-md, slight border darken.",
+    "navigation": "Sticky header with Crystal Glassmorphism (backdrop-blur-xl bg-white/80 border-b border-border). Must include IET Gorakhpur branding/logo text.",
+    "badges": "Used for Lost/Found status. Solid background with high contrast text (e.g., bg-red-100 text-red-800 for Lost)."
+  },
+  "motion": {
+    "hover": "Explicit text color changes, subtle background shifts. Buttons slight scale (scale-[1.02]).",
+    "page_transitions": "Minimalist fade-in. Staggered entrance for item grids."
+  },
+  "icons": {
+    "library": "lucide-react",
+    "style": "Crisp, 2px stroke, functional."
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.pexels.com/photos/7972556/pexels-photo-7972556.jpeg",
+        "description": "Students walking past a historic university building on a sunny day. Use as background for the landing hero section with a gradient overlay (bg-white/90 to bg-white/40) to ensure text readability."
+      },
+      {
+        "category": "campus_students",
+        "url": "https://images.unsplash.com/photo-1693608231470-25e1b16a23b9",
+        "description": "Group of college students standing in front of a building. Use for About or Community sections."
+      },
+      {
+        "category": "lost_item_wallet_keys",
+        "url": "https://images.pexels.com/photos/9243179/pexels-photo-9243179.jpeg",
+        "description": "Keys and wallet on a surface. Use as a sample image for 'Lost Wallet & Keys' report."
+      },
+      {
+        "category": "lost_item_sunglasses",
+        "url": "https://images.unsplash.com/photo-1570993492887-02f5bf2aff21",
+        "description": "Ray-Ban sunglasses beside a brown leather wallet. Use as a sample image for found items."
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure 'Cabinet Grotesk' is used for all headings and 'IBM Plex Sans' for body text. Load from Google Fonts or Fontshare.",
+    "The UI must feel like an official university app. Do not use generic purple or teal gradients. Rely on the Deep Academic Blue (#1E3A8A).",
+    "For the Landing page, implement a clear 'Report Lost' and 'Report Found' dual-action hero section over the hero_background image with a heavy white/glass overlay.",
+    "Dashboard and Item Grid must be mobile-first. Use pure HTML/Tailwind for marketing/landing sections and Shadcn for the app/dashboard interfaces.",
+    "Use data-testid on all buttons, links, and forms for testing.",
+    "Implement the 'Control Room' dense grid style for the Admin Dashboard.",
+    "NEVER use placeholder images; rely strictly on the provided URLs in the media section.",
+    "For the Search bar, include functional filters (Category, Location: e.g., Library, Hostel, Lab, Date)."
+  ]
+}
