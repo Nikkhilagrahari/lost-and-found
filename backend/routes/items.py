@@ -52,6 +52,8 @@ async def create_item(payload: dict):
     "category": payload.get("category"),
     "image": payload.get("image"),
     "user_id": payload.get("user_id"),
+    "reported_by_name": payload.get("reported_by_name"),
+    "reported_by_roll": payload.get("reported_by_roll"),
     "created_at": datetime.utcnow().isoformat(),
     "type": payload.get("type", "lost")
 }
