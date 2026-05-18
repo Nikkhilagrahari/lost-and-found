@@ -42,12 +42,12 @@ export default function ReportItem() {
     if (!form.category || !form.location) { toast.error("Please select category and location"); return; }
     setSubmitting(true);
     try {
-    const r = await api.post("/items", {
-      ...form,
-      type
-    });
-    toast.success(`${isLost ? "Lost" : "Found"} item reported${r.data.matches_found ? ` · ${r.data.matches_found} possible match(es) found!` : ""}`);
-    navigate(`/items/${r.data.item.item_id}`);
+      const r = await api.post("/items", {
+        ...form,
+        type
+      });
+      toast.success(`${isLost ? "Lost" : "Found"} item reported${r.data.matches_found ? ` · ${r.data.matches_found} possible match(es) found!` : ""}`);
+      navigate(`/items/${r.data.item.item_id}`);
   } catch (err) {
     toast.error(err.response?.data?.detail || "Failed to submit");
   } finally { setSubmitting(false); }
