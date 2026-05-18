@@ -133,7 +133,24 @@ export default function ItemDetail() {
                     : "No date"
                 }
               </div>
-              <div className="flex items-center gap-2 text-slate-700"><UserIcon className="w-4 h-4 text-slate-400" /> Reported by <span className="font-medium">{item.user_id}</span></div>
+              <div className="flex items-center gap-2 text-slate-700">
+                <UserIcon className="w-4 h-4 text-slate-400" />
+                <div>
+                  <div>
+                    Reported by:
+                    <span className="font-medium ml-1">
+                      {item.reported_by_name || "Unknown"}
+                    </span>
+                  </div>
+
+                  <div className="text-sm text-slate-500">
+                    Roll No:
+                    <span className="ml-1">
+                      {item.reported_by_roll || "N/A"}
+                    </span>
+                  </div>
+                </div>
+              </div>
               {item.reward && <div className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded px-3 py-2">Reward offered: <strong>{item.reward}</strong></div>}
               {item.handover_status && (
                 <div className="text-sm text-slate-700 bg-slate-50 border border-slate-200 rounded px-3 py-2">Status: <strong>{item.handover_status.replace(/_/g, " ")}</strong></div>

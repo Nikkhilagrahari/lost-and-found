@@ -8,6 +8,7 @@ router = APIRouter(
     prefix="/items",
     tags=["Items"]
 )
+
 @router.get("/{item_id}")
 async def get_item(item_id: str):
     item = db.items.find_one({"_id": ObjectId(item_id)})
@@ -17,6 +18,18 @@ async def get_item(item_id: str):
 
     item["_id"] = str(item["_id"])
     item["id"] = str(item["_id"])
+
+    # Fetch reporter details
+    reporter = None
+
+    if item.get("user_id"):
+        reporter = db.students.find_one({
+            "_id": ObjectId(item["user_id"])
+        })
+
+    if reporter:
+        item["reported_by_name"] = reporter.get("name")
+        item["reported_by_roll"] = reporter.get("roll_number")
 
     return item
 
