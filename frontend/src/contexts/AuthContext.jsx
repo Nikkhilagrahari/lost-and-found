@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
       setLoading(false);
       return;
     }
-    checkAuth();
+    // checkAuth();
   }, [checkAuth]);
 
   const loginWithPassword = async (email, password) => {
