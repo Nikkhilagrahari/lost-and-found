@@ -45,9 +45,6 @@ export default function ReportItem() {
       const r = await api.post("/items", {
         ...form,
         type,
-
-        reported_by_name: localStorage.getItem("user_name"),
-        reported_by_roll: localStorage.getItem("user_roll"),
       });
       toast.success(`${isLost ? "Lost" : "Found"} item reported${r.data.matches_found ? ` · ${r.data.matches_found} possible match(es) found!` : ""}`);
       navigate(`/items/${r.data.item.item_id}`);
