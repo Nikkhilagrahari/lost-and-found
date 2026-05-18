@@ -84,3 +84,25 @@ async def admin_login(payload: AdminLogin):
             "role": "admin"
         }
     }
+from fastapi import Header
+from jose import jwt, JWTError
+from utils.jwt_handler import SECRET_KEY, ALGORITHM
+
+@router.get("/me")
+async def get_me(authorization: str = Header(None)):
+    if not authorization:
+        raise HTTPException(status_code=401, detail="No token")
+
+    try:
+        token = authorization.split(" ")[1]
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+
+        return {
+            "user": {
+                "id": payload.get("admin_id") or payload.get("student_id"),
+                "role": payload.get("role")
+            }
+        }
+
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Invalid token")
