@@ -31,14 +31,26 @@ export function AuthProvider({ children }) {
   const loginWithPassword = async (email, password) => {
     const res = await api.post("/auth/admin/login", { email, password });
     console.log(email, password);
-    if (res.data.token) localStorage.setItem("ietlf_token", res.data.token);
+    if (res.data.token) {
+      localStorage.setItem("ietlf_token", res.data.token);
+
+      localStorage.setItem("user_name", res.data.user.name || "");
+      localStorage.setItem("user_roll", res.data.user.roll_number || "");
+    }
+
     setUser(res.data.user);
     return res.data.user;
   };
 
   const signup = async (name, email, password) => {
     const res = await api.post("/auth/signup", { name, email, password });
-    if (res.data.token) localStorage.setItem("ietlf_token", res.data.token);
+    if (res.data.token) {
+      localStorage.setItem("ietlf_token", res.data.token);
+
+      localStorage.setItem("user_name", res.data.user.name || "");
+      localStorage.setItem("user_roll", res.data.user.roll_number || "");
+    }
+
     setUser(res.data.user);
     return res.data.user;
   };
